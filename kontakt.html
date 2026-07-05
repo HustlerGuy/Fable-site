@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt i darmowa wycena | fiwoj.pl pranie tapicerki Olsztyn</title>
+  <meta name="description" content="Skontaktuj się z fiwoj.pl – pranie tapicerki i wykładzin w Olsztynie. Zadzwoń lub wypełnij formularz, a podamy darmową wycenę w 60 minut. Dojazd do 20 km." />
+  <meta name="theme-color" content="#0B6FB8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="fiwoj.pl strona główna"><span class="logo__mark">💧</span><span>fi<b>woj</b>.pl<small>pranie tapicerki · Olsztyn</small></span></a>
+      <nav class="nav" aria-label="Menu główne">
+        <a href="index.html">Start</a><a href="uslugi.html">Usługi</a><a href="realizacje.html">Realizacje</a>
+        <a href="cennik.html">Cennik</a><a href="o-nas.html">O nas</a><a href="kontakt.html" class="active">Kontakt</a>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+48000000000" class="header__phone"><span>Zadzwoń</span>+48 000 000 000</a>
+        <a href="#formularz" class="btn btn--cta">Darmowa wycena</a>
+        <button class="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero__bubbles" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:2">
+      <p class="breadcrumb"><a href="index.html">Start</a> / Kontakt</p>
+      <h1>Porozmawiajmy o Twojej wycenie</h1>
+      <p>Zadzwoń, napisz lub wypełnij formularz. Odpowiadamy szybko, a wycenę podamy w ciągu 60 minut — bezpłatnie i bez zobowiązań.</p>
+    </div>
+    <div class="wave-divider" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,45 C240,90 480,10 720,35 C960,60 1200,95 1440,50 L1440,90 L0,90 Z"></path></svg></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="align-items:start;gap:40px">
+        <div class="reveal">
+          <span class="eyebrow">Dane kontaktowe</span>
+          <h2 class="section-title" style="font-size:1.9rem">Najszybciej — <span class="accent">telefonicznie</span></h2>
+          <div class="grid" style="margin-top:26px;gap:16px">
+            <a href="tel:+48000000000" class="trust-item" style="background:#fff;padding:18px;border-radius:var(--radius);box-shadow:var(--shadow-sm)"><span class="ic">📞</span><div><b>+48 000 000 000</b><small>Pn–Sob: 8:00–20:00</small></div></a>
+            <a href="mailto:kontakt@fiwoj.pl" class="trust-item" style="background:#fff;padding:18px;border-radius:var(--radius);box-shadow:var(--shadow-sm)"><span class="ic">✉️</span><div><b>kontakt@fiwoj.pl</b><small>Odpowiadamy w ciągu kilku godzin</small></div></a>
+            <a href="#" class="trust-item" style="background:#fff;padding:18px;border-radius:var(--radius);box-shadow:var(--shadow-sm)"><span class="ic">💬</span><div><b>WhatsApp</b><small>Wyślij zdjęcie mebla do wyceny</small></div></a>
+            <div class="trust-item" style="background:#fff;padding:18px;border-radius:var(--radius);box-shadow:var(--shadow-sm)"><span class="ic">📍</span><div><b>Olsztyn i okolice</b><small>Dojazd w promieniu do 20 km</small></div></div>
+          </div>
+          <div class="area__map" aria-hidden="true" style="margin-top:24px;aspect-ratio:16/9">
+            <div class="area__ring" style="width:55%;height:70%"></div>
+            <div class="area__center"><span style="font-size:1.8rem">📍</span><b>Olsztyn</b><small style="opacity:.8">+ 20 km</small></div>
+          </div>
+        </div>
+
+        <div class="reveal" data-delay="1" id="formularz">
+          <div class="form-card">
+            <h2 style="font-size:1.5rem;margin-bottom:8px">Formularz darmowej wyceny</h2>
+            <p style="color:var(--neutral);margin-bottom:24px">Wypełnij poniższe pola — oddzwonimy z wyceną w ciągu 60 minut w godzinach pracy.</p>
+            <form data-quote>
+              <div class="form-success">✅ Dziękujemy! Twoje zgłoszenie zostało wysłane — oddzwonimy z wyceną najszybciej jak to możliwe.</div>
+              <div class="field"><label for="name">Imię *</label><input type="text" id="name" name="name" placeholder="Jak się do Ciebie zwracać?" required /></div>
+              <div class="field"><label for="phone">Telefon *</label><input type="tel" id="phone" name="phone" placeholder="+48 ..." required /></div>
+              <div class="field"><label for="service">Rodzaj usługi</label>
+                <select id="service" name="service">
+                  <option>Pranie tapicerki meblowej</option>
+                  <option>Pranie tapicerki samochodowej</option>
+                  <option>Pranie wykładzin / dywanów</option>
+                  <option>Pranie materacy</option>
+                  <option>Usługi dla firm</option>
+                  <option>Inne / nie jestem pewien</option>
+                </select>
+              </div>
+              <div class="field"><label for="city">Miejscowość</label><input type="text" id="city" name="city" placeholder="np. Olsztyn, Dywity..." /></div>
+              <div class="field"><label for="msg">Opis (opcjonalnie)</label><textarea id="msg" name="msg" placeholder="Np. narożnik po zwierzaku, wykładzina 15 m², preferowany termin..."></textarea></div>
+              <button type="submit" class="btn btn--cta btn--lg btn--block">Wyślij i odbierz wycenę</button>
+              <p class="form-note">Wysyłając formularz akceptujesz kontakt telefoniczny w sprawie wyceny. Nie wysyłamy spamu.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo__mark">💧</span><span>fi<b>woj</b>.pl</span></a>
+          <p class="footer__desc">Profesjonalne pranie tapicerki, wykładzin, dywanów i materacy w Olsztynie i okolicy do 20 km. Jakość premium, szybka realizacja.</p>
+          <div class="footer__social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="WhatsApp">wa</a></div>
+        </div>
+        <div><h4>Usługi</h4><ul><li><a href="uslugi.html">Tapicerka meblowa</a></li><li><a href="uslugi.html">Tapicerka samochodowa</a></li><li><a href="uslugi.html">Wykładziny i dywany</a></li><li><a href="uslugi.html">Materace</a></li><li><a href="uslugi.html">Usługi dla firm</a></li></ul></div>
+        <div><h4>Firma</h4><ul><li><a href="o-nas.html">O nas</a></li><li><a href="realizacje.html">Realizacje</a></li><li><a href="cennik.html">Cennik</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+        <div><h4>Kontakt</h4><ul><li><a href="tel:+48000000000">📞 +48 000 000 000</a></li><li><a href="mailto:kontakt@fiwoj.pl">✉️ kontakt@fiwoj.pl</a></li><li>📍 Olsztyn i okolice (do 20 km)</li><li>🕐 Pn–Sob: 8:00–20:00</li></ul></div>
+      </div>
+      <div class="footer__bottom">© <span id="year">2026</span> fiwoj.pl — Pranie tapicerki i wykładzin w Olsztynie. Wszelkie prawa zastrzeżone.</div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="tel:+48000000000" class="btn btn--phone">📞 Zadzwoń</a>
+    <a href="#formularz" class="btn btn--cta">Darmowa wycena</a>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
