@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hero.css" />
 </head>
 <body>
 
@@ -36,38 +37,42 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero__bubbles" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero__grid">
-        <div class="reveal in">
-          <span class="hero__badge"><span class="stars">★★★★★</span> 5,0 na podstawie opinii klientów</span>
-          <h1>Twoje meble i wykładziny znów <span class="hl">jak nowe</span></h1>
-          <p class="hero__sub">Profesjonalne pranie tapicerki, dywanów i materacy w Olsztynie i okolicy do 20 km. Głębokie czyszczenie ekstrakcyjne, bezpieczne dla dzieci i alergików — z widocznym efektem.</p>
-          <div class="hero__cta">
-            <a href="kontakt.html" class="btn btn--cta btn--lg">Odbierz darmową wycenę w 60 min</a>
-            <a href="realizacje.html" class="btn btn--ghost btn--lg">Zobacz efekty przed/po</a>
+  <!-- ===== HERO (silnik hero-x: interaktywne tło + stagger + motyw) ===== -->
+  <section class="hero-x" data-hero data-theme="dark">
+    <button class="hero-x__toggle" data-theme-toggle aria-label="Przełącz motyw jasny/ciemny" title="Zmień motyw">🌗</button>
+
+    <div class="hero-x__field" data-hero-field aria-hidden="true">
+      <span class="hero-x__layer" style="--depth:.2"></span>
+      <span class="hero-x__layer" style="--depth:.55"></span>
+      <span class="hero-x__layer" style="--depth:.9"></span>
+    </div>
+
+    <div class="hero-x__inner">
+      <span class="hero-x__badge"><span class="stars">★★★★★</span> 5,0 na podstawie opinii klientów</span>
+      <h1 class="hero-x__title" data-split>Twoje meble i wykładziny znów jak nowe</h1>
+      <p class="hero-x__sub">Profesjonalne pranie tapicerki, dywanów i materacy w Olsztynie i okolicy do 20 km. Głębokie czyszczenie ekstrakcyjne, bezpieczne dla dzieci i alergików — z widocznym efektem.</p>
+      <div class="hero-x__cta">
+        <a href="kontakt.html" class="btn btn--cta btn--lg">Odbierz darmową wycenę w 60 min</a>
+        <a href="realizacje.html" class="hero-x__ghost">Zobacz efekty przed/po</a>
+      </div>
+      <div class="hero-x__stats">
+        <div><b><span data-count="1200" data-suffix="+">0</span></b><small>wyczyszczonych mebli</small></div>
+        <div><b><span data-count="8" data-suffix=" lat">0</span></b><small>doświadczenia</small></div>
+        <div><b><span data-count="24" data-suffix="h">0</span></b><small>szybki dojazd</small></div>
+      </div>
+      <div class="hero-x__media">
+        <div class="hero-x__card">
+          <div class="ba" role="img" aria-label="Porównanie kanapy przed i po praniu">
+            <div class="ba__img ba__before"><span>PRZED</span></div>
+            <div class="ba__after ba__img"><span>PO</span></div>
+            <div class="ba__handle"></div>
+            <div class="ba__grip">⇄</div>
           </div>
-          <div class="hero__trust">
-            <div><b><span data-count="1200" data-suffix="+">0</span></b><small>wyczyszczonych mebli</small></div>
-            <div><b><span data-count="8" data-suffix=" lat">0</span></b><small>doświadczenia</small></div>
-            <div><b><span data-count="24" data-suffix="h">0</span></b><small>szybki dojazd</small></div>
-          </div>
-        </div>
-        <div class="reveal in" data-delay="1">
-          <div class="hero__card">
-            <div class="ba" role="img" aria-label="Porównanie kanapy przed i po praniu">
-              <div class="ba__img ba__before"><span>PRZED</span></div>
-              <div class="ba__after ba__img"><span>PO</span></div>
-              <div class="ba__handle"></div>
-              <div class="ba__grip">⇄</div>
-            </div>
-            <p>Przeciągnij suwak — zobacz różnicę 👆</p>
-          </div>
+          <p>Przeciągnij suwak — zobacz różnicę 👆</p>
         </div>
       </div>
     </div>
+
     <div class="wave-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,45 C240,90 480,10 720,35 C960,60 1200,95 1440,50 L1440,90 L0,90 Z"></path></svg>
     </div>
@@ -318,5 +323,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script type="module" src="js/hero.js"></script>
 </body>
 </html>

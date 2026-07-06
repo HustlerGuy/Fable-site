@@ -1,0 +1,267 @@
+/* ============================================================================
+   fiwoj.pl — Hero Engine (CSS Layer)
+   ----------------------------------------------------------------------------
+   Wymagana struktura DOM (kontrakt komponentu, sterowany przez js/hero.js):
+
+   <section class="hero-x" data-hero data-theme="dark">
+     <div class="hero-x__field" data-hero-field>
+       <span class="hero-x__layer" style="--depth:.2"></span>
+       <span class="hero-x__layer" style="--depth:.5"></span>
+       <span class="hero-x__layer" style="--depth:.9"></span>
+     </div>
+     <div class="hero-x__inner">
+       <h1 class="hero-x__title" data-split>Twoje meble jak nowe</h1>
+       <p  class="hero-x__sub"   data-reveal>...</p>
+       <div class="hero-x__cta"  data-reveal>...</div>
+     </div>
+     <button data-theme-toggle></button>
+   </section>
+
+   Kluczowe zmienne runtime zapisywane przez JS:
+   --mx / --my : znormalizowana pozycja kursora w zakresie [-0.5 .. 0.5]
+                 (już wygładzona przez lerp — patrz PointerField w hero.js)
+   ========================================================================== */
+
+/* --- @property: rejestracja tokenów koloru jako <color>, aby paleta motywu
+       była INTERPOLOWALNA (płynne przejście dark/light bez przeładowania DOM;
+       niezarejestrowane custom properties nie podlegają tranzycji) ---------- */
+@property --c-bg-0   { syntax: "<color>"; inherits: true; initial-value: #071d30; }
+@property --c-bg-1   { syntax: "<color>"; inherits: true; initial-value: #0b6fb8; }
+@property --c-accent { syntax: "<color>"; inherits: true; initial-value: #17c3b2; }
+@property --c-ink    { syntax: "<color>"; inherits: true; initial-value: #f5fafd; }
+@property --c-haze   { syntax: "<color>"; inherits: true; initial-value: #0e7ea6; }
+
+:root {
+  /* ---- Easingi: skubizowane krzywe Beziera dla mikrodynamiki ------------- */
+  --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);      /* wyjście, „dociąganie” */
+  --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);     /* symetryczne przejścia */
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);  /* lekki overshoot        */
+
+  /* ---- Siatka / spacing (fluid) ----------------------------------------- */
+  --grid-gutter: clamp(1rem, 3vw, 2.75rem);
+  --grid-cols: 12;
+  --space-block: clamp(4rem, 10vw, 9rem);
+
+  /* ---- Typografia fluid (modular scale, clamp = min | preferowany | max) - */
+  --type-h1:   clamp(2.4rem, 1.2rem + 6vw, 5.5rem);
+  --type-lead: clamp(1.05rem, 0.9rem + 0.9vw, 1.35rem);
+  --leading-tight: 1.02;
+
+  /* ---- Parametry ruchu tła (amplitudy parallaxu w px, mnożone przez --depth) */
+  --field-amp-x: 42px;
+  --field-amp-y: 34px;
+
+  /* ---- Timing staggera (odczytywany również w calc()) ------------------- */
+  --stagger-step: 42ms;
+}
+
+/* --- Palety motywów: JS przełącza [data-theme]; zmienne <color> tranzycjonują */
+[data-theme="dark"] {
+  --c-bg-0: #071d30; --c-bg-1: #0b3f66; --c-accent: #17c3b2;
+  --c-ink: #eef8fd;  --c-haze: #0e7ea6;
+}
+[data-theme="light"] {
+  --c-bg-0: #eaf5fb; --c-bg-1: #bfe6f3; --c-accent: #0ea697;
+  --c-ink: #0b2a3c;  --c-haze: #7fd0e6;
+}
+
+/* ============================ SEKCJA HERO =============================== */
+.hero-x {
+  container-type: inline-size;           /* źródło dla @container (izolacja od viewportu) */
+  container-name: hero;
+  position: relative;
+  isolation: isolate;                    /* własny kontekst dla mix-blend-mode warstw */
+  min-height: min(92svh, 900px);
+  display: grid;
+  place-items: center;
+  overflow: clip;
+  color: var(--c-ink);
+  background: radial-gradient(120% 120% at 50% 0%, var(--c-bg-1), var(--c-bg-0) 70%);
+  /* przejście palety przy zmianie motywu — tylko tokeny <color>, nie layout */
+  transition:
+    --c-bg-0 .6s var(--ease-quart), --c-bg-1 .6s var(--ease-quart),
+    --c-accent .6s var(--ease-quart), --c-ink .6s var(--ease-quart),
+    --c-haze .6s var(--ease-quart);
+}
+
+/* ---- Interaktywne tło: warstwy przesuwane przez --mx/--my (transform-only) */
+.hero-x__field {
+  position: absolute; inset: -10%;       /* nadmiar, by parallax nie odsłaniał krawędzi */
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-x__layer {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  mix-blend-mode: screen;                /* addytywne mieszanie warstw świetlnych */
+  opacity: .55;
+  /* Parallax: translacja proporcjonalna do pozycji kursora * głębokość warstwy.
+     Wektor liczony w JS (lerp) → tu wyłącznie GPU-friendly transform.
+     3D-translate wymusza własną warstwę kompozytową. */
+  transform: translate3d(
+    calc(var(--mx, 0) * var(--field-amp-x) * var(--depth, 1) * 2),
+    calc(var(--my, 0) * var(--field-amp-y) * var(--depth, 1) * 2),
+    0);
+}
+.hero-x__layer:nth-child(1) { background: radial-gradient(circle at 30% 30%, var(--c-accent), transparent 60%); inset: 6% auto auto 4%;  width: 46%; aspect-ratio: 1; }
+.hero-x__layer:nth-child(2) { background: radial-gradient(circle at 50% 50%, var(--c-haze),   transparent 62%); inset: auto 2% 4% auto; width: 54%; aspect-ratio: 1; }
+.hero-x__layer:nth-child(3) { background: radial-gradient(circle at 50% 50%, var(--c-bg-1),   transparent 60%); inset: 20% 30% auto auto; width: 40%; aspect-ratio: 1; }
+
+/* ---- Reflektor podążający za kursorem: maska sprzężona z --mx/--my ------- */
+.hero-x::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, color-mix(in oklab, var(--c-ink) 12%, transparent), transparent 45%);
+  /* mask-image przesuwana translacją środka o wektor kursora → efekt „światła” */
+  -webkit-mask-image: radial-gradient(circle at calc(50% + var(--mx,0) * 60%) calc(45% + var(--my,0) * 60%), #000 0, transparent 60%);
+          mask-image: radial-gradient(circle at calc(50% + var(--mx,0) * 60%) calc(45% + var(--my,0) * 60%), #000 0, transparent 60%);
+}
+
+/* ---- Warstwa treści: Grid + subgrid ----------------------------------- */
+.hero-x__inner {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  gap: var(--grid-gutter);
+  width: min(100% - 2 * var(--grid-gutter), 1200px);
+  padding-block: var(--space-block);
+}
+.hero-x__title,
+.hero-x__sub,
+.hero-x__cta {
+  grid-column: 2 / -2;                   /* domyślnie wąska kolumna czytelności */
+}
+
+/* Subgrid: tytuł dziedziczy ścieżki kolumn rodzica dla precyzyjnego wyrównania */
+.hero-x__title {
+  display: grid;
+  grid-template-columns: subgrid;
+  margin: 0;
+  font: 700 var(--type-h1) / var(--leading-tight) "Poppins", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+.hero-x__sub  { max-width: 46ch; font-size: var(--type-lead); opacity: .9; }
+
+/* @container: komponent reaguje na WŁASNĄ szerokość, nie na viewport ------ */
+@container hero (min-width: 720px) {
+  .hero-x__title { grid-column: 2 / span 9; }
+  .hero-x__sub   { grid-column: 2 / span 7; }
+}
+@container hero (max-width: 480px) {
+  .hero-x__title,
+  .hero-x__sub,
+  .hero-x__cta { grid-column: 1 / -1; }
+}
+
+/* ======================= STAGGERED TYPOGRAPHY ========================== */
+/* Węzły .char/.word wstrzykiwane w locie przez TextSplitter (hero.js).      */
+.hero-x__title .line { display: block; overflow: hidden; }  /* clip-path maski wejścia */
+.hero-x__title .char {
+  display: inline-block;
+  transform: translateY(115%) rotate(6deg);
+  opacity: 0;
+  will-change: transform, opacity;        /* zdejmowane po zakończeniu (patrz JS) */
+}
+/* Reveal: klasa dodawana przez StaggerReveal po wejściu w IntersectionObserver.
+   Delay proporcjonalny do indeksu znaku --i → efekt „fali”. */
+.hero-x[data-revealed] .char {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+  transition:
+    transform .9s var(--ease-expo),
+    opacity   .6s linear;
+  transition-delay: calc(var(--i, 0) * var(--stagger-step));
+}
+.hero-x[data-revealed] .char.is-settled { will-change: auto; }
+
+.hero-x__sub,
+.hero-x__cta { opacity: 0; transform: translateY(20px); }
+.hero-x[data-revealed] .hero-x__sub,
+.hero-x[data-revealed] .hero-x__cta {
+  opacity: 1; transform: none;
+  transition: opacity .7s var(--ease-expo) .35s, transform .7s var(--ease-expo) .35s;
+}
+
+/* ---- Kontrola will-change tła w czasie rzeczywistym (klasa z JS) -------- */
+.hero-x.is-pointer-active .hero-x__layer { will-change: transform; }
+
+/* ---- Dostępność: pełna neutralizacja ruchu ---------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-x, .hero-x * { transition: none !important; animation: none !important; }
+  .hero-x__title .char { transform: none; opacity: 1; }
+  .hero-x__sub, .hero-x__cta { opacity: 1; transform: none; }
+  .hero-x__layer { transform: none; }
+}
+
+
+/* ============================================================================
+   WARSTWA INTEGRACJI — mapowanie treści fiwoj.pl na siatkę silnika hero-x.
+   Nowe elementy dostają jawną ścieżkę kolumn (brak auto-placement w kol. 1).
+   ========================================================================== */
+.hero-x__badge,
+.hero-x__stats,
+.hero-x__media { grid-column: 2 / -2; }
+
+/* Pojedynczy węzeł .line (wstrzyknięty przez TextSplitter) musi objąć cały
+   subgrid tytułu — inaczej trafiłby do jednej ścieżki kolumny. */
+.hero-x__title .line { grid-column: 1 / -1; }
+
+.hero-x__badge {
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; margin-bottom: .4rem; border-radius: 999px;
+  font: 600 .85rem/1 "Poppins", system-ui, sans-serif;
+  background: color-mix(in oklab, var(--c-ink) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--c-ink) 22%, transparent);
+}
+.hero-x__badge .stars { color: #ffc24b; letter-spacing: 2px; }
+
+.hero-x__sub { margin: 1.2rem 0 0; }
+
+.hero-x__cta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.8rem; }
+.hero-x__ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: 15px 28px; border-radius: 999px;
+  font: 600 1rem/1 "Poppins", system-ui, sans-serif; color: var(--c-ink);
+  border: 1.5px solid color-mix(in oklab, var(--c-ink) 45%, transparent);
+  transition: transform .25s var(--ease-expo), background .25s var(--ease-quart);
+}
+.hero-x__ghost:hover { transform: translateY(-3px); background: color-mix(in oklab, var(--c-ink) 10%, transparent); }
+
+.hero-x__stats { display: flex; flex-wrap: wrap; gap: clamp(1.2rem, 3vw, 2.6rem); margin-top: 2.2rem; }
+.hero-x__stats b { display: block; font: 700 clamp(1.4rem, 1rem + 1.4vw, 2rem)/1 "Poppins", system-ui, sans-serif; color: var(--c-accent); }
+.hero-x__stats small { opacity: .72; font-size: .85rem; }
+
+.hero-x__media { justify-self: center; width: min(100%, 540px); margin-top: 2.4rem; }
+.hero-x__card {
+  padding: 16px; border-radius: 24px;
+  background: color-mix(in oklab, var(--c-ink) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--c-ink) 18%, transparent);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.hero-x__card > p { text-align: center; margin: .8rem 0 0; font: 600 .9rem/1.4 "Poppins", system-ui, sans-serif; opacity: .9; }
+
+.hero-x__toggle {
+  position: absolute; top: clamp(1rem, 3vw, 1.6rem); right: clamp(1rem, 3vw, 1.6rem); z-index: 4;
+  width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center; font-size: 1.2rem; color: var(--c-ink);
+  background: color-mix(in oklab, var(--c-ink) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--c-ink) 24%, transparent);
+  transition: transform .35s var(--ease-spring), background .3s;
+}
+.hero-x__toggle:hover { transform: rotate(22deg) scale(1.06); }
+
+/* Wave divider domknięty do dołu sekcji (nad białą treścią strony). */
+.hero-x .wave-divider { position: absolute; bottom: -1px; left: 0; width: 100%; line-height: 0; }
+.hero-x .wave-divider svg { width: 100%; height: 90px; display: block; }
+
+/* Dwukolumnowy układ dopiero, gdy KONTENER (nie viewport) jest szeroki. */
+@container hero (min-width: 860px) {
+  .hero-x__badge,
+  .hero-x__title,
+  .hero-x__sub,
+  .hero-x__cta,
+  .hero-x__stats { grid-column: 2 / span 6; }
+  .hero-x__media {
+    grid-column: 9 / -2; grid-row: 1 / span 6;
+    align-self: center; justify-self: end; margin-top: 0;
+  }
+}
