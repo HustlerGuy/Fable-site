@@ -230,17 +230,15 @@ export class HeroController extends Widget {
     super();
     this.#el = el;
 
-    const field  = el.querySelector("[data-hero-field]") ?? el;
-    const toggle = el.querySelector("[data-theme-toggle]");
+    const field = el.querySelector("[data-hero-field]") ?? el;
 
     // Split typografii — zapamiętujemy restore() do cleanupu DOM.
     const splits = [...el.querySelectorAll("[data-split]")].map((node) => TextSplitter.split(node));
     this.track(() => splits.forEach((s) => s.restore()));
 
-    // Widżety składowe.
+    // Widżety składowe (motyw jest globalny — patrz js/theme.js; hero dziedziczy [data-theme] z <html>).
     this.#add(new PointerField(field, this.#bus));
     this.#add(new StaggerReveal(el, this.#bus));
-    this.#add(new ThemeController({ root: document.documentElement, bus: this.#bus, toggle }));
 
     // ResizeObserver: amplituda parallaxu proporcjonalna do szerokości (≈6% i 5%).
     const ro = new ResizeObserver(([entry]) => {
@@ -250,9 +248,6 @@ export class HeroController extends Widget {
     });
     ro.observe(el);
     this.track(() => ro.disconnect());
-
-    // Przykład Event-Driven: reakcja na zmianę motywu bez bezpośredniej manipulacji.
-    this.track(this.#bus.on("theme:change", (e) => el.setAttribute("data-theme", e.detail.theme)));
   }
 
   get bus() { return this.#bus; }

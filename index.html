@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero.css" />
+  <script>try{var t=localStorage.getItem('fiwoj-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
 
@@ -32,13 +33,14 @@
       <div class="header__actions">
         <a href="tel:+48000000000" class="header__phone"><span>Zadzwoń</span>+48 000 000 000</a>
         <a href="kontakt.html" class="btn btn--cta">Darmowa wycena</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Przełącz motyw" title="Zmień motyw">🌙</button>
         <button class="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <!-- ===== HERO (silnik hero-x: interaktywne tło + stagger + motyw) ===== -->
-  <section class="hero-x" data-hero data-theme="dark">
+  <section class="hero-x" data-hero>
     <button class="hero-x__toggle" data-theme-toggle aria-label="Przełącz motyw jasny/ciemny" title="Zmień motyw">🌗</button>
 
     <div class="hero-x__field" data-hero-field aria-hidden="true">
@@ -323,6 +325,7 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script type="module" src="js/theme.js"></script>
   <script type="module" src="js/hero.js"></script>
 </body>
 </html>
