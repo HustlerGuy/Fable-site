@@ -3,329 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranie tapicerki i wykładzin Olsztyn | fiwoj.pl – wycena w 60 min</title>
-  <meta name="description" content="Profesjonalne pranie tapicerki meblowej, samochodowej, wykładzin i materacy w Olsztynie i okolicy do 20 km. Jakość premium, szybka realizacja, darmowa wycena. Zadzwoń!" />
-  <meta name="theme-color" content="#0B6FB8" />
+  <title>fiwoj.pl — pranie tapicerki i wykładzin klasy premium | Olsztyn</title>
+  <meta name="description" content="Profesjonalne pranie tapicerki, wykładzin i materacy dla domów i firm w Olsztynie. Jakość premium, szybka realizacja, gwarancja efektu. Zamów darmową wycenę." />
+  <meta name="theme-color" content="#0F1E33" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <script>try{var t=localStorage.getItem('fiwoj-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="premium/style.css" />
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="logo" aria-label="fiwoj.pl strona główna">
-        <span class="logo__mark">💧</span>
-        <span>fi<b>woj</b>.pl<small>pranie tapicerki · Olsztyn</small></span>
+  <header class="site-header" data-header>
+    <div class="wrap site-header__inner">
+      <a class="brand" href="#top" aria-label="fiwoj.pl — strona główna">
+        <span class="brand__mark" aria-hidden="true">◈</span>
+        <span class="brand__name">fiwoj<span>.pl</span></span>
       </a>
-      <nav class="nav" aria-label="Menu główne">
-        <a href="index.html" class="active">Start</a>
-        <a href="uslugi.html">Usługi</a>
-        <a href="realizacje.html">Realizacje</a>
-        <a href="cennik.html">Cennik</a>
-        <a href="o-nas.html">O nas</a>
-        <a href="kontakt.html">Kontakt</a>
+      <nav class="mainnav" aria-label="Nawigacja główna">
+        <a href="#uslugi">Usługi</a>
+        <a href="#dlaczego">Dlaczego my</a>
+        <a href="#opinie">Opinie</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
-      <div class="header__actions">
-        <a href="tel:+48000000000" class="header__phone"><span>Zadzwoń</span>+48 000 000 000</a>
-        <a href="kontakt.html" class="btn btn--cta">Darmowa wycena</a>
-        <button class="theme-toggle" data-theme-toggle aria-label="Przełącz motyw" title="Zmień motyw">🌙</button>
-        <button class="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="site-header__cta">
+        <a class="btn btn--ghost" href="tel:+48000000000">+48 000 000 000</a>
+        <a class="btn btn--solid" href="#kontakt">Darmowa wycena</a>
       </div>
+      <button class="navtoggle" data-navtoggle aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- ===== HERO (silnik hero-x: interaktywne tło + stagger + motyw) ===== -->
-  <section class="hero-x" data-hero>
-    <button class="hero-x__toggle" data-theme-toggle aria-label="Przełącz motyw jasny/ciemny" title="Zmień motyw">🌗</button>
+  <main id="top">
 
-    <div class="hero-x__field" data-hero-field aria-hidden="true">
-      <span class="hero-x__layer" style="--depth:.2"></span>
-      <span class="hero-x__layer" style="--depth:.55"></span>
-      <span class="hero-x__layer" style="--depth:.9"></span>
-    </div>
-
-    <div class="hero-x__inner">
-      <span class="hero-x__badge"><span class="stars">★★★★★</span> 5,0 na podstawie opinii klientów</span>
-      <h1 class="hero-x__title" data-split>Twoje meble i wykładziny znów jak nowe</h1>
-      <p class="hero-x__sub">Profesjonalne pranie tapicerki, dywanów i materacy w Olsztynie i okolicy do 20 km. Głębokie czyszczenie ekstrakcyjne, bezpieczne dla dzieci i alergików — z widocznym efektem.</p>
-      <div class="hero-x__cta">
-        <a href="kontakt.html" class="btn btn--cta btn--lg">Odbierz darmową wycenę w 60 min</a>
-        <a href="realizacje.html" class="hero-x__ghost">Zobacz efekty przed/po</a>
-      </div>
-      <div class="hero-x__stats">
-        <div><b><span data-count="1200" data-suffix="+">0</span></b><small>wyczyszczonych mebli</small></div>
-        <div><b><span data-count="8" data-suffix=" lat">0</span></b><small>doświadczenia</small></div>
-        <div><b><span data-count="24" data-suffix="h">0</span></b><small>szybki dojazd</small></div>
-      </div>
-      <div class="hero-x__media">
-        <div class="hero-x__card">
-          <div class="ba" role="img" aria-label="Porównanie kanapy przed i po praniu">
-            <div class="ba__img ba__before"><span>PRZED</span></div>
-            <div class="ba__after ba__img"><span>PO</span></div>
-            <div class="ba__handle"></div>
-            <div class="ba__grip">⇄</div>
+    <!-- HERO / USP -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow reveal">Pranie tapicerki i wykładzin · Olsztyn +20&nbsp;km</p>
+          <h1 class="hero__title reveal" data-d="1">Czystość klasy&nbsp;premium — dla&nbsp;domu i&nbsp;dla&nbsp;firmy.</h1>
+          <p class="hero__lead reveal" data-d="2">Głębokie czyszczenie ekstrakcyjne kanap, foteli, dywanów, materacy i aut. Profesjonalny sprzęt, środki bezpieczne dla dzieci i alergików, widoczny efekt — z dojazdem pod Twój adres.</p>
+          <div class="hero__actions reveal" data-d="3">
+            <a class="btn btn--solid btn--lg" href="#kontakt">Zamów darmową wycenę</a>
+            <a class="btn btn--ghost btn--lg" href="#uslugi">Zobacz usługi</a>
           </div>
-          <p>Przeciągnij suwak — zobacz różnicę 👆</p>
+          <dl class="hero__stats reveal" data-d="4">
+            <div><dt>1200+</dt><dd>wyczyszczonych wnętrz</dd></div>
+            <div><dt>24&nbsp;h</dt><dd>szybka realizacja</dd></div>
+            <div><dt>5,0★</dt><dd>średnia ocen klientów</dd></div>
+          </dl>
         </div>
-      </div>
-    </div>
-
-    <div class="wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,45 C240,90 480,10 720,35 C960,60 1200,95 1440,50 L1440,90 L0,90 Z"></path></svg>
-    </div>
-  </section>
-
-  <!-- ===== TRUST STRIP ===== -->
-  <div class="container">
-    <div class="trust-strip reveal">
-      <div class="trust-item"><span class="ic">🏆</span><div><b>Jakość premium</b><small>Profesjonalny sprzęt ekstrakcyjny</small></div></div>
-      <div class="trust-item"><span class="ic">⚡</span><div><b>Szybka realizacja</b><small>Termin nawet na jutro</small></div></div>
-      <div class="trust-item"><span class="ic">👶</span><div><b>Bezpieczne środki</b><small>Dla dzieci i alergików</small></div></div>
-      <div class="trust-item"><span class="ic">🚐</span><div><b>Dojazd do Ciebie</b><small>Olsztyn + 20 km</small></div></div>
-    </div>
-  </div>
-
-  <!-- ===== USŁUGI ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center reveal">
-        <span class="eyebrow">Nasze usługi</span>
-        <h2 class="section-title">Czyścimy to, co <span class="accent">trudno wyprać</span></h2>
-        <p class="section-lead">Wybierz usługę i sprawdź orientacyjną cenę. Dokładną wycenę podamy po krótkiej rozmowie — bez zobowiązań.</p>
-      </div>
-      <div class="grid grid--3" style="margin-top:48px">
-        <article class="card reveal">
-          <div class="card__icon">🛋️</div>
-          <h3>Pranie tapicerki meblowej</h3>
-          <p>Kanapy, narożniki, fotele i krzesła. Usuwamy plamy, kurz, roztocza i nieprzyjemne zapachy.</p>
-          <p class="card__price">już od 40 zł / miejsce</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <div class="card__icon">🚗</div>
-          <h3>Pranie tapicerki samochodowej</h3>
-          <p>Fotele, podsufitka, wykładzina bagażnika. Twoje auto pachnie i wygląda jak z salonu.</p>
-          <p class="card__price">już od 150 zł / auto</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <div class="card__icon">🧶</div>
-          <h3>Pranie wykładzin i dywanów</h3>
-          <p>Wykładziny w domu i biurze, dywany wełniane i syntetyczne — dogłębnie i bezpiecznie.</p>
-          <p class="card__price">już od 12 zł / m²</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🛏️</div>
-          <h3>Pranie materacy</h3>
-          <p>Zdrowy sen zaczyna się od czystego materaca. Eliminujemy roztocza i alergeny.</p>
-          <p class="card__price">już od 60 zł / szt.</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <div class="card__icon">🏢</div>
-          <h3>Usługi dla firm (B2B)</h3>
-          <p>Biura, hotele, gabinety, restauracje. Stała współpraca i faktura VAT.</p>
-          <p class="card__price">wycena indywidualna</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <div class="card__icon">✨</div>
-          <h3>Impregnacja i ochrona</h3>
-          <p>Zabezpieczenie tkanin po praniu — plamy wsiąkają wolniej, czystość trwa dłużej.</p>
-          <p class="card__price">dopłata od 20 zł</p>
-          <a href="uslugi.html" class="card__link">Dowiedz się więcej →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRZED / PO (PAS) ===== -->
-  <section class="section section--ice">
-    <div class="container">
-      <div class="hero__grid" style="align-items:center">
-        <div class="reveal">
-          <span class="eyebrow">Problem znasz aż za dobrze</span>
-          <h2 class="section-title">Plamy, kurz i zapach, których <span class="accent">nie da się doprać</span> w domu</h2>
-          <p class="section-lead" style="margin-bottom:22px">Rozlana kawa na kanapie, ślady po zwierzaku, wykładzina, która „szarzeje” z roku na rok. Domowe sposoby często tylko rozmazują problem — a roztocza i alergeny zostają głęboko we włóknach.</p>
-          <ul class="check-list">
-            <li>Maszyna ekstrakcyjna wyciąga brud z głębi tkaniny, nie tylko z powierzchni.</li>
-            <li>Środki dobrane do rodzaju materiału — bez ryzyka odbarwień.</li>
-            <li>Meble suche zwykle w kilka godzin, nie w kilka dni.</li>
-            <li>Efekt widać od razu — i możesz go sprawdzić sam na suwaku obok.</li>
+        <aside class="hero__card reveal" data-d="3" aria-label="Skrót oferty">
+          <p class="hero__card-kicker">Najczęściej zamawiane</p>
+          <ul class="hero__list">
+            <li><span>Pranie kanapy / narożnika</span><b>od 100 zł</b></li>
+            <li><span>Tapicerka samochodowa</span><b>od 150 zł</b></li>
+            <li><span>Wykładziny i dywany</span><b>od 12 zł/m²</b></li>
+            <li><span>Materace</span><b>od 60 zł</b></li>
           </ul>
-          <a href="kontakt.html" class="btn btn--blue btn--lg" style="margin-top:26px">Chcę taki sam efekt → Wyceń</a>
+          <a class="btn btn--solid btn--block" href="#kontakt">Wyceń swoją usługę</a>
+          <p class="hero__card-note">Wycena bezpłatna i niezobowiązująca — odpowiedź w 60&nbsp;minut.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF: partnerzy -->
+    <section class="logos" aria-label="Zaufali nam">
+      <div class="wrap">
+        <p class="logos__label reveal">Zaufali nam mieszkańcy i firmy z regionu</p>
+        <ul class="logos__row reveal" data-d="1">
+          <li>Hotele</li><li>Biura</li><li>Restauracje</li><li>Gabinety</li><li>Wspólnoty</li><li>Salony</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DLACZEGO MY / USP -->
+    <section id="dlaczego" class="section">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Dlaczego fiwoj.pl</p>
+          <h2 class="section__title">Konkret zamiast obietnic</h2>
+          <p class="section__lead">Cztery powody, dla których klienci wracają i polecają nas dalej.</p>
+        </header>
+        <div class="grid grid--4">
+          <article class="feature reveal">
+            <span class="feature__ic" aria-hidden="true">✦</span>
+            <h3>Jakość premium</h3>
+            <p>Profesjonalne maszyny ekstrakcyjne wyciągają brud z głębi włókien — nie tylko z powierzchni.</p>
+          </article>
+          <article class="feature reveal" data-d="1">
+            <span class="feature__ic" aria-hidden="true">⚡</span>
+            <h3>Szybka realizacja</h3>
+            <p>Wycena w 60 minut, termin nawet na następny dzień. Szanujemy Twój czas.</p>
+          </article>
+          <article class="feature reveal" data-d="2">
+            <span class="feature__ic" aria-hidden="true">✓</span>
+            <h3>Gwarancja efektu</h3>
+            <p>Mówimy wprost, czego się spodziewać. Nie jesteś zadowolony? Doczyszczamy gratis.</p>
+          </article>
+          <article class="feature reveal" data-d="3">
+            <span class="feature__ic" aria-hidden="true">◐</span>
+            <h3>Bezpieczeństwo</h3>
+            <p>Atestowane środki bezpieczne dla dzieci, alergików i zwierząt domowych.</p>
+          </article>
         </div>
-        <div class="reveal" data-delay="1">
-          <div class="ba" role="img" aria-label="Porównanie wykładziny przed i po praniu">
-            <div class="ba__img ba__before"><span>PRZED</span></div>
-            <div class="ba__after ba__img"><span>PO</span></div>
-            <div class="ba__handle"></div>
-            <div class="ba__grip">⇄</div>
+      </div>
+    </section>
+
+    <!-- USŁUGI -->
+    <section id="uslugi" class="section section--alt">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Zakres usług</p>
+          <h2 class="section__title">Czyścimy to, czego nie doprać w domu</h2>
+        </header>
+        <div class="grid grid--3">
+          <article class="service reveal"><h3>Tapicerka meblowa</h3><p>Kanapy, narożniki, fotele, krzesła, zagłówki.</p><span class="service__price">od 40 zł / miejsce</span></article>
+          <article class="service reveal" data-d="1"><h3>Tapicerka samochodowa</h3><p>Fotele, podsufitka, boczki, bagażnik.</p><span class="service__price">od 150 zł / auto</span></article>
+          <article class="service reveal" data-d="2"><h3>Wykładziny i dywany</h3><p>Domowe i biurowe, wełniane i syntetyczne.</p><span class="service__price">od 12 zł / m²</span></article>
+          <article class="service reveal"><h3>Materace</h3><p>Usuwamy roztocza, alergeny, plamy i zapachy.</p><span class="service__price">od 60 zł / szt.</span></article>
+          <article class="service reveal" data-d="1"><h3>Usługi dla firm (B2B)</h3><p>Biura, hotele, gastronomia. Faktura VAT.</p><span class="service__price">wycena indywidualna</span></article>
+          <article class="service reveal" data-d="2"><h3>Impregnacja</h3><p>Ochrona tkanin — czystość utrzymuje się dłużej.</p><span class="service__price">od 20 zł</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCES -->
+    <section class="section">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Jak pracujemy</p>
+          <h2 class="section__title">Cztery kroki do świeżości</h2>
+        </header>
+        <ol class="steps">
+          <li class="reveal"><span class="steps__n">01</span><h3>Kontakt</h3><p>Dzwonisz lub wysyłasz zdjęcie. Darmowa wycena w 60&nbsp;minut.</p></li>
+          <li class="reveal" data-d="1"><span class="steps__n">02</span><h3>Termin</h3><p>Umawiamy dojazd pod Twój adres — nawet na jutro.</p></li>
+          <li class="reveal" data-d="2"><span class="steps__n">03</span><h3>Pranie</h3><p>Czyścimy na miejscu profesjonalnym sprzętem.</p></li>
+          <li class="reveal" data-d="3"><span class="steps__n">04</span><h3>Efekt</h3><p>Sprawdzasz rezultat. Gwarancja doczyszczenia.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- OPINIE -->
+    <section id="opinie" class="section section--alt">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Opinie</p>
+          <h2 class="section__title">Co mówią klienci</h2>
+        </header>
+        <div class="grid grid--3">
+          <figure class="quote reveal">
+            <p class="quote__stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            <blockquote>Kanapa po kotach wróciła jak nowa. Panowie punktualni i konkretni. Polecam w ciemno.</blockquote>
+            <figcaption><b>Anna K.</b><span>Olsztyn, Jaroty</span></figcaption>
+          </figure>
+          <figure class="quote reveal" data-d="1">
+            <p class="quote__stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            <blockquote>Tapicerka w aucie i zapach — rewelacja. Wycena od ręki, przyjazd następnego dnia.</blockquote>
+            <figcaption><b>Marek W.</b><span>Dywity</span></figcaption>
+          </figure>
+          <figure class="quote reveal" data-d="2">
+            <p class="quote__stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            <blockquote>Profesjonalnie i uczciwie. Wykładzina w biurze jak nowa — przechodzimy na stałą współpracę.</blockquote>
+            <figcaption><b>Joanna B.</b><span>Firma, Centrum</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT / CTA -->
+    <section id="kontakt" class="contact">
+      <div class="wrap contact__grid">
+        <div class="contact__intro reveal">
+          <p class="eyebrow eyebrow--light">Kontakt</p>
+          <h2 class="contact__title">Zamów darmową wycenę już dziś</h2>
+          <p class="contact__lead">Zadzwoń lub napisz — odpowiadamy szybko i wyceniamy bez zobowiązań. Działamy w Olsztynie i okolicy do 20&nbsp;km.</p>
+          <div class="contact__actions">
+            <a class="btn btn--solid btn--lg" href="tel:+48000000000">Zadzwoń: +48&nbsp;000&nbsp;000&nbsp;000</a>
+            <a class="btn btn--outline btn--lg" href="mailto:kontakt@fiwoj.pl">Napisz e-mail</a>
           </div>
-          <p class="ba__caption">Przykładowa realizacja — przeciągnij, aby porównać.</p>
         </div>
+        <ul class="contact__facts reveal" data-d="1">
+          <li><span>Telefon</span><a href="tel:+48000000000">+48 000 000 000</a></li>
+          <li><span>E-mail</span><a href="mailto:kontakt@fiwoj.pl">kontakt@fiwoj.pl</a></li>
+          <li><span>Obszar</span>Olsztyn i okolice (do 20 km)</li>
+          <li><span>Godziny</span>Pon–Sob: 8:00–20:00</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROCES ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center reveal">
-        <span class="eyebrow">Jak to działa</span>
-        <h2 class="section-title">4 proste kroki do <span class="accent">czystości</span></h2>
-      </div>
-      <div class="steps" style="margin-top:48px">
-        <div class="step reveal"><div class="step__num"></div><h4>Kontakt</h4><p>Dzwonisz lub wysyłasz zdjęcie. Podajemy darmową wycenę w 60 minut.</p></div>
-        <div class="step reveal" data-delay="1"><div class="step__num"></div><h4>Dogodny termin</h4><p>Umawiamy dojazd pod Twój adres — nawet na następny dzień.</p></div>
-        <div class="step reveal" data-delay="2"><div class="step__num"></div><h4>Pranie na miejscu</h4><p>Czyścimy sprzętem profesjonalnym, bezpiecznymi środkami.</p></div>
-        <div class="step reveal" data-delay="3"><div class="step__num"></div><h4>Widoczny efekt</h4><p>Sprawdzasz rezultat. Nie zadowolony? Doczyszczamy gratis.</p></div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- ===== OBSZAR DZIAŁANIA ===== -->
-  <section class="section section--ice">
-    <div class="container">
-      <div class="area">
-        <div class="reveal">
-          <span class="eyebrow">Obszar działania</span>
-          <h2 class="section-title">Dojeżdżamy do <span class="accent">Olsztyna i okolic</span></h2>
-          <p class="section-lead">Działamy w Olsztynie oraz w promieniu 20 km. Dojazd na terenie miasta gratis — okolice ustalamy indywidualnie.</p>
-          <div class="chips">
-            <span class="chip">Olsztyn</span><span class="chip">Dywity</span><span class="chip">Stawiguda</span>
-            <span class="chip">Barczewo</span><span class="chip">Jonkowo</span><span class="chip">Purda</span>
-            <span class="chip">Gietrzwałd</span><span class="chip">Klewki</span><span class="chip">Dorotowo</span>
-          </div>
-        </div>
-        <div class="reveal" data-delay="1">
-          <div class="area__map" aria-hidden="true">
-            <div class="area__ring" style="width:60%;height:60%"></div>
-            <div class="area__ring" style="width:88%;height:88%"></div>
-            <div class="area__center"><span style="font-size:2rem">📍</span><b>Olsztyn</b><small style="opacity:.8">+ 20 km dookoła</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== OPINIE ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center reveal">
-        <span class="eyebrow">Opinie klientów</span>
-        <h2 class="section-title">Zaufali nam <span class="accent">mieszkańcy Olsztyna</span></h2>
-      </div>
-      <div class="grid grid--3" style="margin-top:48px">
-        <div class="review reveal">
-          <div class="review__stars">★★★★★</div>
-          <p>„Kanapa po kotach wyglądała beznadziejnie, a wróciła jak nowa. Panowie punktualni i mili. Polecam!”</p>
-          <div class="review__author"><span class="review__avatar">AK</span><div><b>Anna K.</b><small>Olsztyn, Jaroty</small></div></div>
-        </div>
-        <div class="review reveal" data-delay="1">
-          <div class="review__stars">★★★★★</div>
-          <p>„Prałem tapicerkę w aucie — efekt i zapach rewelacja. Wycena od ręki, przyjechali następnego dnia.”</p>
-          <div class="review__author"><span class="review__avatar">MW</span><div><b>Marek W.</b><small>Dywity</small></div></div>
-        </div>
-        <div class="review reveal" data-delay="2">
-          <div class="review__stars">★★★★★</div>
-          <p>„Profesjonalnie i uczciwie. Wykładzina w biurze wygląda świetnie, umawiamy się na stałą współpracę.”</p>
-          <div class="review__author"><span class="review__avatar">JB</span><div><b>Joanna B.</b><small>Firma, Olsztyn Centrum</small></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA BAND ===== -->
-  <section class="section--tight">
-    <div class="container">
-      <div class="cta-band reveal">
-        <div class="hero__bubbles" aria-hidden="true"></div>
-        <div style="position:relative;z-index:2">
-          <h2>Gotowy na świeżość w Twoim domu?</h2>
-          <p>Zadzwoń lub wyślij zdjęcie — darmową i niezobowiązującą wycenę podamy w ciągu godziny. Wolne terminy na ten tydzień.</p>
-          <div class="hero__cta">
-            <a href="tel:+48000000000" class="btn btn--phone btn--lg">📞 Zadzwoń: +48 000 000 000</a>
-            <a href="kontakt.html" class="btn btn--cta btn--lg">Umów termin online</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="section section--ice">
-    <div class="container">
-      <div class="text-center reveal">
-        <span class="eyebrow">Częste pytania</span>
-        <h2 class="section-title">Dobrze wiedzieć <span class="accent">przed praniem</span></h2>
-      </div>
-      <div class="faq" style="margin-top:44px">
-        <div class="faq__item reveal"><button class="faq__q">Jak długo schnie tapicerka po praniu?<span class="plus">+</span></button><div class="faq__a"><p>Zwykle od 3 do 6 godzin, w zależności od materiału i wentylacji pomieszczenia. Używamy metody ekstrakcyjnej, która odsysa większość wilgoci, dzięki czemu meble szybko wracają do użytku.</p></div></div>
-        <div class="faq__item reveal"><button class="faq__q">Czy środki są bezpieczne dla dzieci i zwierząt?<span class="plus">+</span></button><div class="faq__a"><p>Tak. Stosujemy atestowane preparaty przeznaczone do tkanin, bezpieczne dla dzieci, alergików i zwierząt. Po praniu i wyschnięciu nie pozostają żadne szkodliwe pozostałości.</p></div></div>
-        <div class="faq__item reveal"><button class="faq__q">Ile kosztuje pranie kanapy?<span class="plus">+</span></button><div class="faq__a"><p>Cena zależy od liczby miejsc siedzących i rodzaju tkaniny. Orientacyjnie od 40 zł za miejsce. Dokładną, darmową wycenę podamy po rozmowie lub na podstawie przesłanego zdjęcia.</p></div></div>
-        <div class="faq__item reveal"><button class="faq__q">Czy dojeżdżacie pod wskazany adres?<span class="plus">+</span></button><div class="faq__a"><p>Tak, pracujemy u klienta — w Olsztynie dojazd jest gratis, a w promieniu do 20 km ustalamy go indywidualnie. Całe pranie odbywa się na miejscu, nie musisz nigdzie wozić mebli.</p></div></div>
-        <div class="faq__item reveal"><button class="faq__q">A jeśli plama nie zejdzie?<span class="plus">+</span></button><div class="faq__a"><p>Zawsze informujemy uczciwie, czego można się spodziewać. Jeśli efekt Cię nie zadowoli, doczyszczamy wybrany fragment ponownie bez dodatkowych opłat.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <a href="index.html" class="logo"><span class="logo__mark">💧</span><span>fi<b>woj</b>.pl</span></a>
-          <p class="footer__desc">Profesjonalne pranie tapicerki, wykładzin, dywanów i materacy w Olsztynie i okolicy do 20 km. Jakość premium, szybka realizacja.</p>
-          <div class="footer__social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="WhatsApp">wa</a></div>
-        </div>
-        <div>
-          <h4>Usługi</h4>
-          <ul>
-            <li><a href="uslugi.html">Tapicerka meblowa</a></li>
-            <li><a href="uslugi.html">Tapicerka samochodowa</a></li>
-            <li><a href="uslugi.html">Wykładziny i dywany</a></li>
-            <li><a href="uslugi.html">Materace</a></li>
-            <li><a href="uslugi.html">Usługi dla firm</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Firma</h4>
-          <ul>
-            <li><a href="o-nas.html">O nas</a></li>
-            <li><a href="realizacje.html">Realizacje</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Kontakt</h4>
-          <ul>
-            <li><a href="tel:+48000000000">📞 +48 000 000 000</a></li>
-            <li><a href="mailto:kontakt@fiwoj.pl">✉️ kontakt@fiwoj.pl</a></li>
-            <li>📍 Olsztyn i okolice (do 20 km)</li>
-            <li>🕐 Pn–Sob: 8:00–20:00</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">© <span id="year">2026</span> fiwoj.pl — Pranie tapicerki i wykładzin w Olsztynie. Wszelkie prawa zastrzeżone.</div>
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <span class="brand"><span class="brand__mark" aria-hidden="true">◈</span><span class="brand__name">fiwoj<span>.pl</span></span></span>
+      <p>© <span data-year>2026</span> fiwoj.pl — pranie tapicerki i wykładzin w Olsztynie.</p>
+      <a href="classic/index.html">Pełna wersja serwisu →</a>
     </div>
   </footer>
 
-  <!-- ===== MOBILNY PASEK CTA ===== -->
-  <div class="mobile-bar">
-    <a href="tel:+48000000000" class="btn btn--phone">📞 Zadzwoń</a>
-    <a href="kontakt.html" class="btn btn--cta">Darmowa wycena</a>
-  </div>
-
-  <script src="js/main.js"></script>
-  <script type="module" src="js/theme.js"></script>
-  <script type="module" src="js/hero.js"></script>
+  <script src="premium/app.js"></script>
 </body>
 </html>
