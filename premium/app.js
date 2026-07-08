@@ -47,6 +47,15 @@
     );
   }
 
+  /* --- Suwak przed/po: sterowany dostępnym <input type=range> (klawiatura + dotyk) --- */
+  document.querySelectorAll("[data-ba]").forEach((ba) => {
+    const range = ba.querySelector(".ba__range");
+    if (!range) return;
+    const apply = (v) => ba.style.setProperty("--pos", v + "%");
+    apply(range.value);
+    range.addEventListener("input", () => apply(range.value), { passive: true });
+  });
+
   /* --- Rok w stopce --- */
   const yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = new Date().getFullYear();

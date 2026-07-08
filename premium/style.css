@@ -230,3 +230,63 @@ body.nav-open .navtoggle span:nth-child(2) { transform: translateY(-4px) rotate(
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn:active { transform: none; }
 }
+
+
+/* ============================================================================
+   ULEPSZENIA: skip-link, głębia hero, dowód przed/po, domknięcia sekcji
+   ========================================================================== */
+
+/* Skip-link (dostępność) */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--accent); color: #05312c; padding: .7rem 1.1rem; border-radius: 0 0 12px 12px;
+  font-family: var(--font-head); font-weight: 700; transition: transform .25s var(--ease);
+}
+.skip-link:focus { top: 0; transform: translateY(0); }
+
+/* Grid 2-kolumnowy */
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+/* Domknięcie sekcji (CTA pod gridem) */
+.section__foot { text-align: center; margin-top: clamp(2rem, 3.5vw, 3rem); }
+
+/* Głębia tła hero: miękkie orby (statyczne, spokojne — premium) */
+.hero { position: relative; overflow: hidden; }
+.hero__grid { position: relative; z-index: 1; }
+.hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.hero__bg span { position: absolute; border-radius: 50%; filter: blur(72px); }
+.hero__bg span:nth-child(1) { width: min(46vw, 520px); aspect-ratio: 1; top: -12%; right: -6%;
+  background: radial-gradient(circle, rgba(20,184,166,.30), transparent 70%); }
+.hero__bg span:nth-child(2) { width: min(40vw, 440px); aspect-ratio: 1; bottom: -22%; left: -8%;
+  background: radial-gradient(circle, rgba(15,30,51,.10), transparent 70%); }
+
+/* --- Suwak przed/po (dostępny: sterowany <input type=range>) --- */
+.ba-grid { align-items: start; }
+.ba-wrap { margin: 0; }
+.ba-wrap figcaption { margin-top: .9rem; color: var(--slate); font-size: .9rem; }
+.ba {
+  position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); user-select: none; touch-action: pan-y;
+}
+.ba:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ba__layer { position: absolute; inset: 0; }
+.ba__after  { background: linear-gradient(135deg, #dcecf1, #bfe3e6); }
+.ba__before { background: linear-gradient(135deg, #8d8578, #6f685c);
+  /* Widoczna szerokość warstwy „PRZED” = --pos; reszta odsłania „PO”. */
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+.ba__after--alt  { background: linear-gradient(135deg, #e6eef7, #cfe0f2); }
+.ba__before--alt { background: linear-gradient(135deg, #7c7a86, #5b5966); }
+.ba__tag { position: absolute; top: 12px; font-family: var(--font-head); font-weight: 700;
+  font-size: .7rem; letter-spacing: .1em; padding: 5px 10px; border-radius: 999px; color: #fff; }
+.ba__tag--before { left: 12px; background: rgba(23,38,58,.6); }
+.ba__tag--after  { right: 12px; background: rgba(14,158,142,.9); }
+.ba__line { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px;
+  background: #fff; transform: translateX(-1px); pointer-events: none; }
+.ba__line::after {
+  content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 42px; height: 42px; border-radius: 50%; background: #fff; color: var(--accent-600);
+  display: grid; place-items: center; font-size: 1rem; box-shadow: var(--shadow);
+}
+.ba__range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+
+@media (max-width: 720px) { .ba-grid { grid-template-columns: 1fr; } }

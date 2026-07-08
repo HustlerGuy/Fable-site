@@ -4,14 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fiwoj.pl — pranie tapicerki i wykładzin klasy premium | Olsztyn</title>
-  <meta name="description" content="Profesjonalne pranie tapicerki, wykładzin i materacy dla domów i firm w Olsztynie. Jakość premium, szybka realizacja, gwarancja efektu. Zamów darmową wycenę." />
+  <meta name="description" content="Profesjonalne pranie tapicerki, wykładzin i materacy dla domów i firm w Olsztynie i okolicy do 20 km. Jakość premium, szybka realizacja, gwarancja efektu. Darmowa wycena." />
   <meta name="theme-color" content="#0F1E33" />
+  <link rel="canonical" href="https://fiwoj.pl/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="fiwoj.pl — pranie tapicerki i wykładzin klasy premium | Olsztyn" />
+  <meta property="og:description" content="Głębokie czyszczenie kanap, dywanów, materacy i aut. Jakość premium, szybka realizacja, dojazd w Olsztynie i okolicy." />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:url" content="https://fiwoj.pl/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1E33'/%3E%3Cpath d='M16 6c4 5 6 8 6 11a6 6 0 1 1-12 0c0-3 2-6 6-11z' fill='%2314B8A6'/%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="premium/style.css" />
+
+  <!-- Dane strukturalne: lokalny biznes usługowy -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "fiwoj.pl",
+    "description": "Profesjonalne pranie tapicerki, wykładzin, dywanów i materacy dla domów i firm w Olsztynie i okolicy do 20 km.",
+    "url": "https://fiwoj.pl/",
+    "telephone": "+48000000000",
+    "email": "kontakt@fiwoj.pl",
+    "priceRange": "$$",
+    "areaServed": "Olsztyn i okolice (do 20 km)",
+    "address": { "@type": "PostalAddress", "addressLocality": "Olsztyn", "addressCountry": "PL" },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00", "closes": "20:00"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48" }
+  }
+  </script>
 </head>
-<body>
+<body id="top">
+  <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="site-header" data-header>
     <div class="wrap site-header__inner">
@@ -21,8 +57,9 @@
       </a>
       <nav class="mainnav" aria-label="Nawigacja główna">
         <a href="#uslugi">Usługi</a>
-        <a href="#dlaczego">Dlaczego my</a>
-        <a href="#opinie">Opinie</a>
+        <a href="#efekty">Efekty</a>
+        <a href="cennik.html">Cennik</a>
+        <a href="realizacje.html">Realizacje</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
       <div class="site-header__cta">
@@ -35,10 +72,11 @@
     </div>
   </header>
 
-  <main id="top">
+  <main id="main">
 
     <!-- HERO / USP -->
     <section class="hero">
+      <div class="hero__bg" aria-hidden="true"><span></span><span></span></div>
       <div class="wrap hero__grid">
         <div class="hero__content">
           <p class="eyebrow reveal">Pranie tapicerki i wykładzin · Olsztyn +20&nbsp;km</p>
@@ -46,7 +84,7 @@
           <p class="hero__lead reveal" data-d="2">Głębokie czyszczenie ekstrakcyjne kanap, foteli, dywanów, materacy i aut. Profesjonalny sprzęt, środki bezpieczne dla dzieci i alergików, widoczny efekt — z dojazdem pod Twój adres.</p>
           <div class="hero__actions reveal" data-d="3">
             <a class="btn btn--solid btn--lg" href="#kontakt">Zamów darmową wycenę</a>
-            <a class="btn btn--ghost btn--lg" href="#uslugi">Zobacz usługi</a>
+            <a class="btn btn--ghost btn--lg" href="#efekty">Zobacz efekty przed/po</a>
           </div>
           <dl class="hero__stats reveal" data-d="4">
             <div><dt>1200+</dt><dd>wyczyszczonych wnętrz</dd></div>
@@ -126,11 +164,48 @@
           <article class="service reveal" data-d="1"><h3>Usługi dla firm (B2B)</h3><p>Biura, hotele, gastronomia. Faktura VAT.</p><span class="service__price">wycena indywidualna</span></article>
           <article class="service reveal" data-d="2"><h3>Impregnacja</h3><p>Ochrona tkanin — czystość utrzymuje się dłużej.</p><span class="service__price">od 20 zł</span></article>
         </div>
+        <div class="section__foot reveal">
+          <a class="btn btn--ghost" href="cennik.html">Zobacz pełny cennik →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EFEKTY: dowód przed/po -->
+    <section id="efekty" class="section">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Efekty</p>
+          <h2 class="section__title">Zobacz różnicę na własne oczy</h2>
+          <p class="section__lead">Przeciągnij suwak, aby porównać stan przed i po praniu. To najlepszy dowód jakości.</p>
+        </header>
+        <div class="grid grid--2 ba-grid">
+          <figure class="ba-wrap reveal">
+            <div class="ba" data-ba style="--pos:52%">
+              <div class="ba__layer ba__after"><span class="ba__tag ba__tag--after">PO</span></div>
+              <div class="ba__layer ba__before"><span class="ba__tag ba__tag--before">PRZED</span></div>
+              <span class="ba__line" aria-hidden="true"></span>
+              <input class="ba__range" type="range" min="0" max="100" value="52" aria-label="Porównanie przed/po — kanapa" />
+            </div>
+            <figcaption>Kanapa narożna · Olsztyn, Jaroty</figcaption>
+          </figure>
+          <figure class="ba-wrap reveal" data-d="1">
+            <div class="ba" data-ba style="--pos:48%">
+              <div class="ba__layer ba__after ba__after--alt"><span class="ba__tag ba__tag--after">PO</span></div>
+              <div class="ba__layer ba__before ba__before--alt"><span class="ba__tag ba__tag--before">PRZED</span></div>
+              <span class="ba__line" aria-hidden="true"></span>
+              <input class="ba__range" type="range" min="0" max="100" value="48" aria-label="Porównanie przed/po — wykładzina" />
+            </div>
+            <figcaption>Wykładzina biurowa · Centrum</figcaption>
+          </figure>
+        </div>
+        <div class="section__foot reveal">
+          <a class="btn btn--ghost" href="realizacje.html">Więcej realizacji →</a>
+        </div>
       </div>
     </section>
 
     <!-- PROCES -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="wrap">
         <header class="section__head reveal">
           <p class="eyebrow">Jak pracujemy</p>
@@ -146,7 +221,7 @@
     </section>
 
     <!-- OPINIE -->
-    <section id="opinie" class="section section--alt">
+    <section id="opinie" class="section">
       <div class="wrap">
         <header class="section__head reveal">
           <p class="eyebrow">Opinie</p>
@@ -181,7 +256,7 @@
           <p class="contact__lead">Zadzwoń lub napisz — odpowiadamy szybko i wyceniamy bez zobowiązań. Działamy w Olsztynie i okolicy do 20&nbsp;km.</p>
           <div class="contact__actions">
             <a class="btn btn--solid btn--lg" href="tel:+48000000000">Zadzwoń: +48&nbsp;000&nbsp;000&nbsp;000</a>
-            <a class="btn btn--outline btn--lg" href="mailto:kontakt@fiwoj.pl">Napisz e-mail</a>
+            <a class="btn btn--outline btn--lg" href="kontakt.html">Formularz wyceny</a>
           </div>
         </div>
         <ul class="contact__facts reveal" data-d="1">
@@ -199,7 +274,7 @@
     <div class="wrap site-footer__inner">
       <span class="brand"><span class="brand__mark" aria-hidden="true">◈</span><span class="brand__name">fiwoj<span>.pl</span></span></span>
       <p>© <span data-year>2026</span> fiwoj.pl — pranie tapicerki i wykładzin w Olsztynie.</p>
-      <a href="classic/index.html">Pełna wersja serwisu →</a>
+      <a href="classic/index.html">Klasyczna wersja serwisu →</a>
     </div>
   </footer>
 
